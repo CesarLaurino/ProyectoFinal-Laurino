@@ -149,20 +149,17 @@ document.addEventListener("keyup", e=>{
 /////////////////////////////////////////////////////////////////////////
 
 botonModos.onclick = () => {
+    const cambioImagen = document.getElementById("avatar");
     body.classList.toggle("modo-oscuro")
     if (body.className === "modo-claro modo-oscuro"){
         botonModos.textContent = "Modo Claro"
+        cambioImagen.src = "img/master_Ball_icon.png";
     } else {
         botonModos.textContent = "Modo Oscuro"
+        cambioImagen.src = "img/Poké_Ball_icon.svg.png";
     }
 }
 
-const cambioImagen = document.getElementById("avatar");
-if (body === "modo-oscuro") {
-	imagen.src = "img/master_Ball_icon.png";
-} else {
-	imagen.src = "img/Poké_Ball_icon.svg.png";
-}
 
 /////////////////////////////////////////////////////////////////////////
 
