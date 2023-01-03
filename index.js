@@ -157,7 +157,7 @@ botonModos.onclick = () => {
     }
 }
 
-const imagen = document.getElementById("avatar");
+const cambioImagen = document.getElementById("avatar");
 if (body === "modo-oscuro") {
 	imagen.src = "img/master_Ball_icon.png";
 } else {
