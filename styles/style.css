@@ -91,11 +91,11 @@ body {
 }
 
 .modo-claro {
-    background-color: azure;
+    background-color: rgb(255, 255, 255);
 }
 
 .modo-oscuro {
-    background-color: rgb(0, 0, 67);
+    background-color: rgb(62, 0, 85);
 }
 
 #logout {
@@ -113,7 +113,7 @@ nav {
 
 
 .modo-claro .login-box  {
-    background-color:rgb(0, 0, 67);
+    background-color:rgb(126, 0, 0);
     color: white;
     margin-top: 50px;
     padding: 10px;
