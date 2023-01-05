@@ -299,7 +299,7 @@ nav {
     color: white;
 }
 
-.product {
+.poke{
     display: none;
     flex-wrap: wrap;
     align-items: center;
@@ -312,7 +312,7 @@ img{
     height: 150px;
 }
 
-.titulo-producto{
+.titulo-pokemon{
     font-size: 100%;
     text-align: center;
 }
