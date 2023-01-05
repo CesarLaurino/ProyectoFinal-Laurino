@@ -6,6 +6,19 @@ body {
     height: 100vh;
 }
 
+
+nav {
+    padding: 20px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* #claro-oscuro{
+    
+} */
+
 .login-box {
     width: 375px;
     height: 450px;
@@ -14,9 +27,6 @@ body {
     justify-content: center;
     align-items: center;
     background: #000;
-    color: #fff;
-    top: 50%;
-    left: 50%;
     position: static;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
@@ -29,17 +39,17 @@ body {
 @keyframes pulse {
 	0% {
 		transform: scale(1);
-		box-shadow: 0 0 0 0 rgb(147, 0, 0);
+		box-shadow: 0 0 10px 0 rgb(218, 165, 32, 0.7);
 	}
 
 	70% {
-		transform: scale(1.01);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+		transform: scale(1);
+		box-shadow: 0 0 10px 35px rgba(218, 165, 32, 0); 
 	}
 
 	100% {
 		transform: scale(1);
-		box-shadow: 0 0 0 0 rgb(150, 0, 0, 0);
+		box-shadow: 0 0 10px 0 rgba(218, 165, 32, 0.7);
 	}
 }
 
@@ -50,13 +60,6 @@ body {
     position: absolute;
     top: -50px;
     left: calc(50% - 50px);
-}
-
-.login-box h1 {
-    margin: 5px;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 30px;
 }
 
 .login-box label {
@@ -82,34 +85,41 @@ body {
     font-size: 16px;
 }
 
-.login-box .input-ingre {
+.modo-claro .login-box .input-ingre {
     border: none;
     outline: none;
     height: 40px;
-    background: #ffffff;
+    background: goldenrod;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    border: solid 2px grey;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 0px rgb(0, 0, 0);
+}
+
+.modo-oscuro .login-box .input-ingre {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: lightslategrey;
     color: rgb(0, 0, 0);
     font-size: 18px;
     border-radius: 20px;
+    box-shadow: 0px 0px 15px 0px rgb(0, 0, 0);
 }
 
-.login-box .input-ingre:hover {
+.modo-claro .login-box .input-ingre:hover {
     cursor: pointer;
     background: #ff0000;
     color: rgb(255, 255, 255);
 }
 
-.container-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.modo-oscuro .login-box .input-ingre:hover {
+    cursor: pointer;
+    background: blueviolet;
+    color: rgb(255, 255, 255);
 }
 
-.inicio{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
 
 .modo-claro {
     background-color: rgb(255, 255, 255);
@@ -119,26 +129,30 @@ body {
     background-color: rgb(62, 0, 85);
 }
 
-#logout {
-    display: none;
+.modo-claro .login-box h1 {
+    margin: 5px;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 30px;
+    color: goldenrod;
+    text-shadow: 3px 3px 8px black;
 }
 
-
-nav {
-    padding: 20px;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: space-between;
+.modo-oscuro .login-box h1 {
+    margin: 5px;
+    padding: 0 0 20px;
+    text-align: center;
+    width: 30%;
+    font-size: 30px;
+    color: rgb(128, 0, 255);
+    text-shadow: 3px 3px 8px black;
 }
 
 
 .modo-claro .login-box  {
     background-color:rgb(126, 0, 0);
-    color: white;
     margin-top: 50px;
     padding: 10px;
-    border: 2px solid  black;
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -146,54 +160,34 @@ nav {
 }
 
 .modo-oscuro .login-box  {
-
     background-color: rgb(89, 89, 89);
-    color: white;
     margin-top: 50px;
     padding: 10px;
-    border: 2px solid azure;
     width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-/* 
-#login {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;    
-    align-items: center;
-} */
 
 .modo-claro input {
-    background-color: white;
-    border: 1px solid white;
     margin: 10px 0px;
 }
 
 .modo-oscuro input {
-    background-color: azure;
-    border: 1px solid azure;
     margin: 10px 0px;
 }
 
-.container-usuarios {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-} 
-
-#logint {
-    display: none;
-    font-size: 13px;
+.modo-claro label {
+    color: rgb(215, 182, 100);
+    text-shadow: 3px 3px 8px black; 
+    font-size: 20px;
 }
 
-.product {
-    display: none;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-} 
+.modo-oscuro label {
+    color: rgb(157, 60, 255);
+    text-shadow: 3px 3px 8px black; 
+    font-size: 20px;
+}
 
 .modo-claro .contenedor-busqueda { 
     width: 150px;
@@ -217,6 +211,46 @@ nav {
     flex-direction: column;
     margin: 10px;
 }
+
+.modo-claro #logout {
+    display: none;
+}
+
+.modo-oscuro #logout {
+    display: none;
+}
+
+.container-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.container-usuarios {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+} 
+
+#logint {
+    display: none;
+    font-size: 15px;
+    color: white;
+}
+
+.product {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+} 
 
 
 img{
