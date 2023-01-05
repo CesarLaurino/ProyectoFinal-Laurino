@@ -191,7 +191,7 @@ formLogin.onsubmit = ( event ) => {
         inputPass.style.border = "2px solid red"
         inputUser.style.border = "2px solid red"
         buscadorProductos.style.display = "none"
-        contenedorForm.reset();
+        formLogin.reset();
     }
 
 }

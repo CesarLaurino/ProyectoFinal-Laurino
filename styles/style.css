@@ -15,6 +15,49 @@ nav {
     margin-bottom: 10px;
 }
 
+.button {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    padding: 0;
+}
+
+#claro-oscuro {
+    display: none;
+}
+
+.slider {
+    display: block;
+    font-size: 10px;
+    position: relative;
+}
+
+.slider::after {
+    content: 'OFF';
+    width: 25px;
+    height: 25px;
+    background-color: #e03c3c;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+    position: absolute;
+    top: -5px;
+    left: 0;
+    display: grid;
+    place-content: center;
+    line-height: 0;
+    transition: background-color .25s, transform .25s ease-in;
+}
+
+#claro-oscuro:checked + .slider::after {
+    content: 'ON';
+    background-color: #05ae3e;
+    transform: translateX(25px) rotate(360deg);
+}
+
 /* #claro-oscuro{
     
 } */
@@ -142,7 +185,6 @@ nav {
     margin: 5px;
     padding: 0 0 20px;
     text-align: center;
-    width: 30%;
     font-size: 30px;
     color: rgb(128, 0, 255);
     text-shadow: 3px 3px 8px black;
@@ -169,21 +211,33 @@ nav {
     align-items: center;
 }
 
-.modo-claro input {
+.modo-claro #input-user {
     margin: 10px 0px;
 }
 
-.modo-oscuro input {
+.modo-oscuro #input-pass {
     margin: 10px 0px;
 }
 
-.modo-claro label {
+.modo-claro .label-user {
     color: rgb(215, 182, 100);
     text-shadow: 3px 3px 8px black; 
     font-size: 20px;
 }
 
-.modo-oscuro label {
+.modo-claro .label-pass {
+    color: rgb(215, 182, 100);
+    text-shadow: 3px 3px 8px black; 
+    font-size: 20px;
+}
+
+.modo-oscuro .label-user{
+    color: rgb(157, 60, 255);
+    text-shadow: 3px 3px 8px black; 
+    font-size: 20px;
+}
+
+.modo-oscuro .label-pass {
     color: rgb(157, 60, 255);
     text-shadow: 3px 3px 8px black; 
     font-size: 20px;

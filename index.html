@@ -11,12 +11,23 @@
 <body class="modo-claro">
 
     <nav>
-        <button id="claro-oscuro">
-            Cambiar modo
-        </button>
-        <button id="logout">
-            Cerrar sesión
-        </button>       
+        <!-- <div id="modos">
+            <label class="button" for="claro-oscuro">
+                <input id="claro-oscuro" type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div> -->
+        <div id="modos">
+            <label class="button" for="claro-oscuro">
+                <input id="claro-oscuro" type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div>
+            <button id="logout">
+                Cerrar sesión
+            </button>   
+        </div>    
     </nav>
 
     <main>
@@ -25,9 +36,9 @@
                 <img src="img/Poké_Ball_icon.svg.png" id="avatar" alt="Avatar Image">
                 <h1>Inicie sesión</h1>
                 <form id="login">
-                    <label for="username">Usuario</label>
+                    <label class="label-user" for="username">Usuario</label>
                     <input type="text" placeholder="Usuario" id="input-user" autocomplete="off">
-                    <label for="password">Contraseña</label>
+                    <label class="label-pass" for="password">Contraseña</label>
                     <input type="password" placeholder="Contraseña" id="input-pass" autocomplete="off">
                     <input type="submit" class="input-ingre" value="Ingresar">
                     <p id="logint">
