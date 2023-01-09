@@ -4082,7 +4082,7 @@ const inputUser = document.querySelector ("#input-user")
 const inputPass = document.querySelector ("#input-pass")
 const loginIncorrecto = document.querySelector ("#logint")
 const contenedorForm = document.querySelector (".login-box")
-const logout = document.querySelector ("#logout")
+const logout = document.querySelector (".logout")
 const botonModos = document.querySelector ("#claro-oscuro")
 const body = document.querySelector (".modo-claro")
 const contenedor = document.querySelector (".poke")
@@ -4135,10 +4135,10 @@ botonModos.onclick = () => {
     body.classList.toggle("modo-oscuro")
     if (body.className === "modo-claro modo-oscuro"){
         botonModos.textContent = "Modo Claro"
-        cambioImagen.src = "img/master_Ball_icon.png";
+        cambioImagen.src = "img/master_Ball_icon-LOGIN.jpg";
     } else {
         botonModos.textContent = "Modo Oscuro"
-        cambioImagen.src = "img/Poké_Ball_icon.svg.png";
+        cambioImagen.src = "img/Poké_Ball_icon-LOGIN.jpg";
     }
 }
 
@@ -4198,7 +4198,7 @@ logout.onclick = () => {
     localStorage.removeItem( "login" )
     validarLogin(obtenerDelLs("login"))
     formLogin.reset()
+    location.reload()
 }
 
 /////////////////////////////////////////////////////////////////////////
-
