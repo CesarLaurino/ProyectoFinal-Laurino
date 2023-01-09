@@ -355,6 +355,9 @@ nav {
     justify-content: center;
 } 
 
+.label-pass{
+    margin-top: 20px;
+}
 
 img{
     width: 150px;
@@ -384,6 +387,8 @@ img{
 
 footer{
     background-color: black;
+    position: relative;
     width: 100%;
     height: 50px;
+    bottom: 0%;
 }
