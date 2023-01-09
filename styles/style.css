@@ -164,13 +164,11 @@ nav {
 
 
 .modo-claro {
-    /* background-color: rgb(255, 255, 255); */
     background-image: url(/img/Background-modo-claro2.jpg);
 }
 
 .modo-oscuro {
-    /* background-color: rgb(62, 0, 85); */
-    background-image: url(https://pkmn-argentina.com/sitio/wp-content/uploads/2021/11/pokemon_mcoo-relanzamiento-capitulo_26-title.png);
+    background-image: url(/img/Background-modo-oscuro.jpg);
 }
 
 .modo-claro .login-box h1 {
