@@ -1,9 +1,20 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: monospace;
+    max-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    font-family: sans-serif;
-    min-height: 100vh;
+}
+
+.modo-claro {
+    background-image: url(/img/Background-modo-claro3.jpg);
+}
+
+.modo-oscuro {
+    background-image: url(/img/Background-modo-oscuro.jpg);
 }
 
 
@@ -12,14 +23,32 @@ nav {
     background-color: black;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
 }
 
-.button {
+footer{
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    bottom: 0%;
+}
+
+.modo-claro .button {
     display: inline-block;
     width: 80px;
     height: 20px;
-    background-color: white;
+    background-color: rgba(139, 0, 0, 0.8);
+    border-radius: 30px;
+    border: solid black;
+    cursor: pointer;
+    padding: 0;
+}
+
+.modo-oscuro .button {
+    display: inline-block;
+    width: 80px;
+    height: 20px;
+    background-color: rgb(89, 89, 89, 0.8);
     border-radius: 30px;
     border: solid black;
     cursor: pointer;
@@ -36,7 +65,7 @@ nav {
 }
 
 .slider::after {
-    content: url(/img/Poké_Ball_botonmodo.png);
+    content: url(/img/pikachumodo.jpg);
     width: 40px;
     height: 40px;
     background-color: white;
@@ -52,7 +81,7 @@ nav {
 }
 
 #claro-oscuro:checked + .slider::after {
-    content: url(/img/master_Ball_botonmodo.png);
+    content: url(/img/ojosgengar.png);
     transform: translateX(50px) rotate(360deg);
 }
 
@@ -62,17 +91,11 @@ nav {
 
 
 .login-box {
-    width: 375px;
+    width: 330px;
     height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #000;
+    margin: 100px;
     position: static;
-    transform: translate(-50%, -50%);
     box-sizing: border-box;
-    padding: 100px 50px;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
 	transform: scale(10);
 	animation: pulse 4s infinite;
@@ -98,6 +121,7 @@ nav {
 .login-box #avatar {
     width: 100px;
     height: 100px;
+    box-shadow: 0px 0px 30px 5px black;
     border-radius: 50%;
     position: absolute;
     top: -50px;
@@ -111,28 +135,57 @@ nav {
     display: flex;
 }
 
-.login-box input {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
 .login-box #input-user, .login-box #input-pass {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid darkgoldenrod;
     background: transparent;
     outline: none;
     height: 40px;
-    color: #fff;
+    width: 100%;
+    color: rgb(255, 255, 255);
     font-size: 16px;
 }
 
+.modo-oscuro #login #input-user,.modo-oscuro #login .div-pass #input-pass {
+    border-bottom: 1px solid darkviolet;
+}
+
+.login{
+    height: 525px;
+    background-color:rgb(125, 0, 0);
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modo-claro .login-box  {
+    height: 525px;
+    background-color:rgb(125, 0, 0);
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modo-oscuro .login-box  {
+    height: 525px;
+    background-color: rgb(89, 89, 89);
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .modo-claro .login-box .input-ingre {
+    margin-top: 25px;
     border: none;
     outline: none;
     height: 40px;
-    background: goldenrod;
-    color: rgb(0, 0, 0);
+    width: 100%;
+    background: rgb(176, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 18px;
     border: solid 2px grey;
     border-radius: 20px;
@@ -140,6 +193,7 @@ nav {
 }
 
 .modo-oscuro .login-box .input-ingre {
+    margin-top: 25px;
     border: none;
     outline: none;
     height: 40px;
@@ -152,8 +206,8 @@ nav {
 
 .modo-claro .login-box .input-ingre:hover {
     cursor: pointer;
-    background: #ff0000;
-    color: rgb(255, 255, 255);
+    background: goldenrod;
+    color: rgb(0, 0, 0);
 }
 
 .modo-oscuro .login-box .input-ingre:hover {
@@ -162,18 +216,8 @@ nav {
     color: rgb(255, 255, 255);
 }
 
-
-.modo-claro {
-    background-image: url(/img/Background-modo-claro2.jpg);
-}
-
-.modo-oscuro {
-    background-image: url(/img/Background-modo-oscuro.jpg);
-}
-
 .modo-claro .login-box h1 {
-    margin: 5px;
-    padding: 0 0 20px;
+    margin-bottom: 50px;
     text-align: center;
     font-size: 30px;
     color: goldenrod;
@@ -181,53 +225,25 @@ nav {
 }
 
 .modo-oscuro .login-box h1 {
-    margin: 5px;
-    padding: 0 0 20px;
+    margin-bottom: 50px;
     text-align: center;
     font-size: 30px;
     color: rgb(128, 0, 255);
     text-shadow: 3px 3px 8px black;
 }
 
-
-.modo-claro .login-box  {
-    background-color:rgb(125, 0, 0);
-    margin-top: 50px;
-    padding: 10px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.modo-oscuro .login-box  {
-    background-color: rgb(89, 89, 89);
-    margin-top: 50px;
-    padding: 10px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.modo-claro #input-user {
-    margin: 10px 0px;
-}
-
-.modo-oscuro #input-pass {
-    margin: 10px 0px;
-}
-
 .modo-claro .label-user {
     color: rgb(215, 182, 100);
     text-shadow: 3px 3px 8px black; 
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .modo-claro .label-pass {
     color: rgb(215, 182, 100);
     text-shadow: 3px 3px 8px black; 
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .modo-oscuro .label-user{
@@ -293,9 +309,11 @@ nav {
 } 
 
 #logint {
+    margin-top: 30px;
+    text-align: center;
     display: none;
-    font-size: 15px;
-    color: white;
+    font-size: 20px;
+    color: rgb(255, 0, 0);
 }
 
 .logout {
@@ -353,15 +371,6 @@ nav {
     justify-content: center;
 } 
 
-.label-pass{
-    margin-top: 20px;
-}
-
-img{
-    width: 150px;
-    height: 150px;
-}
-
 .titulo-pokemon{
     font-size: 100%;
     text-align: center;
@@ -373,20 +382,28 @@ img{
     align-items: center;
 }
 
-#search{
+#search {
+    margin-top: 50px;
     text-align: center;
-    width: 500px;
-    border: 2px solid rgb(0, 0, 67);
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px 1px rgba(139, 0, 0, 0.7) ;
+    border-bottom: 2px solid darkgoldenrod;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    outline: none;
+    height: 50px;
+    width: 300px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+#search:focus{
+    box-shadow: 2px 2px 30px goldenrod inset;
 }
 
 .filtro {
     display: none;
 }
 
-footer{
-    position: fixed;
-    background-color: black;
-    width: 100%;
-    height: 50px;
-    bottom: 0%;
-}

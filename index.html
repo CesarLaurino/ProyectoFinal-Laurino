@@ -32,10 +32,14 @@
                 <img src="img/Poké_Ball_icon-LOGIN.jpg" id="avatar" alt="Avatar Image">
                 <h1>Inicie sesión</h1>
                 <form id="login">
-                    <label class="label-user" for="username">Usuario</label>
-                    <input type="text" placeholder="Usuario" id="input-user" autocomplete="off">
-                    <label class="label-pass" for="password">Contraseña</label>
-                    <input type="password" placeholder="Contraseña" id="input-pass" autocomplete="off">
+                    <div class="div-user">
+                        <label class="label-user" for="username">Usuario</label>
+                        <input type="text" placeholder="Usuario" id="input-user" autocomplete="off">
+                    </div>
+                    <div class="div-pass">
+                        <label class="label-pass" for="password">Contraseña</label>
+                        <input type="password" placeholder="Contraseña" id="input-pass" autocomplete="off">
+                    </div>
                     <input type="submit" class="input-ingre" value="Ingresar">
                     <p id="logint">
                         El usuario o la contraseña son incorrectas.
@@ -43,7 +47,7 @@
                 </form>
             </div>
             <div class="buscador">
-                <input type="text" name="search" placeholder="Buscar" id="search" autocomplete="off">
+                <input type="text" name="search" id="search" placeholder="Buscar" autocomplete="off">
             </div>        
         </div>
         <div class="poke">
