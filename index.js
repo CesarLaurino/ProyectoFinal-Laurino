@@ -19,42 +19,42 @@ const contenedorPokemon = document.querySelector (".contenedor-pokemon")
 //////////////////////////LLamarlos desde api///////////////////////////
 
 function fetchPokemon (id){
-  fetch ( `https://pokeapi.co/api/v2/pokemon/${id}/` )
-  .then (res => res.json())
-  .then (data => crearPokemons(data))
-}
+    fetch ( `https://pokeapi.co/api/v2/pokemon/${id}/` )
+    .then (res => res.json())
+    .then (data => crearPokemons(data))
+    }
 
-function fetchPokemons (number){
-  for (let i = 1; i <= number; i++){
-    fetchPokemon(i);
-  }
+    function fetchPokemons (number){
+    for (let i = 1; i <= number; i++){
+        fetchPokemon(i);
+    }
 }
 //////////////////////////Crear Card Pokemons///////////////////////////
 
 function crearPokemons(pokemon){
-  const card = document.createElement (`div`);
-  card.classList.add (`pokemon-card`);
+    const card = document.createElement (`div`);
+    card.classList.add (`pokemon-card`);
 
-  const imgContenedor = document.createElement (`div`);
-  imgContenedor.classList.add (`img-contenedor`);
+    const imgContenedor = document.createElement (`div`);
+    imgContenedor.classList.add (`img-contenedor`);
 
-  const imgPokemon = document.createElement (`img`);
-  imgPokemon.src = pokemon.sprites.front_default
+    const imgPokemon = document.createElement (`img`);
+    imgPokemon.src = pokemon.sprites.front_default
 
-  imgContenedor.appendChild(imgPokemon);
+    imgContenedor.appendChild(imgPokemon);
 
-  const numeroPokemon = document.createElement (`p`);
-  numeroPokemon.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
-  
-  const nombrePokemon = document.createElement (`p`);
-  nombrePokemon.classList.add = ` nombre `;
-  nombrePokemon.textContent = pokemon.name
+    const numeroPokemon = document.createElement (`p`);
+    numeroPokemon.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
-  card.appendChild (imgContenedor);
-  card.appendChild (numeroPokemon);
-  card.appendChild (nombrePokemon);
+    const nombrePokemon = document.createElement (`p`);
+    nombrePokemon.classList.add = ` nombre `;
+    nombrePokemon.textContent = pokemon.name
 
-  contenedorPokemon.appendChild (card);
+    card.appendChild (imgContenedor);
+    card.appendChild (numeroPokemon);
+    card.appendChild (nombrePokemon);
+
+    contenedorPokemon.appendChild (card);
 }
 
 fetchPokemons(151)
