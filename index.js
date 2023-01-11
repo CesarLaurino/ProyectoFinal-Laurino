@@ -44,6 +44,7 @@ function crearPokemons(pokemon){
     imgContenedor.appendChild(imgPokemon);
 
     const numeroPokemon = document.createElement (`p`);
+    numeroPokemon.classList.add = `numero`;
     numeroPokemon.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
     const nombrePokemon = document.createElement (`p`);
@@ -57,7 +58,7 @@ function crearPokemons(pokemon){
     contenedorPokemon.appendChild (card);
 }
 
-fetchPokemons(151)
+fetchPokemons(9)
 
 //////////////////////////Buscador//////////////////////////////////////
 
@@ -67,7 +68,7 @@ document.addEventListener("keyup", e => {
 
         if (e.key ==="Escape")e.target.value = ""
 
-        document.querySelectorAll(".nombre").forEach(fetchPokemons =>{
+        document.querySelectorAll(".pokemon-card").forEach(fetchPokemons =>{
 
             fetchPokemons.textContent.toLowerCase().includes(e.target.value.toLowerCase())
             ?fetchPokemons.classList.remove("filtro")
@@ -112,10 +113,10 @@ formLogin.onsubmit = ( event ) => {
         subirAlLs("login", true)
         contenedorForm.style.display = "none"  
         logout.style.display = "block" 
-        contenedorPokemon.style.display = "flex"
+        contenedorPokemon.style.display = "grid"
         buscadorProductos.style.display = "flex"
     } else {        
-        loginIncorrecto.style.display = "block"
+        loginIncorrecto.style.display = "on"
         inputPass.style.border = "2px solid red"
         inputUser.style.border = "2px solid red"
         buscadorProductos.style.display = "none"
