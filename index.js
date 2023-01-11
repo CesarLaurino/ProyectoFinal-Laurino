@@ -11,7 +11,7 @@ const logout = document.querySelector (".logout")
 const botonModos = document.querySelector ("#claro-oscuro")
 const body = document.querySelector (".modo-claro")
 /////////////////////BUSCADOR//////////////////////////////
-const buscadorProductos = document.querySelector (".buscador")
+const buscadorPokemon = document.querySelector (".buscador")
 /////////////////////POKEMONS//////////////////////////////
 const contenedorPokemon = document.querySelector (".contenedor-pokemon")
 
@@ -58,7 +58,7 @@ function crearPokemons(pokemon){
     contenedorPokemon.appendChild (card);
 }
 
-fetchPokemons(9)
+fetchPokemons(151)
 
 //////////////////////////Buscador//////////////////////////////////////
 
@@ -77,7 +77,8 @@ document.addEventListener("keyup", e => {
     }
 })
 
-///////////////////////////////////////////////////////////////////////// 
+////////////////////////Modos////////////////////////////////////////////
+
 botonModos.onclick = () => {
     const cambioImagen = document.getElementById("avatar");
     body.classList.toggle("modo-oscuro")
@@ -111,15 +112,15 @@ formLogin.onsubmit = ( event ) => {
     event.preventDefault()
     if ( inputUser.value === datosUsuario.user && inputPass.value === datosUsuario.password ) {
         subirAlLs("login", true)
-        contenedorForm.style.display = "none"  
+        contenedorForm.style.display = "none" 
         logout.style.display = "block" 
         contenedorPokemon.style.display = "grid"
-        buscadorProductos.style.display = "flex"
+        buscadorPokemon.style.display = "block"
     } else {        
-        loginIncorrecto.style.display = "on"
+        loginIncorrecto.style.display = "flex"
         inputPass.style.border = "2px solid red"
         inputUser.style.border = "2px solid red"
-        buscadorProductos.style.display = "none"
+        buscadorPokemon.style.display = "none"
         formLogin.reset();
     }
 

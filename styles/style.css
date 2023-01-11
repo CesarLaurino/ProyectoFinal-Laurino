@@ -316,8 +316,8 @@ footer{
     margin-top: 30px;
     text-align: center;
     display: none;
-    font-size: 10px;
-    color: rgb(255, 0, 0);
+    font-size: 8px;
+    color: rgb(180, 180, 180);
 }
 
 .logout {
@@ -401,17 +401,16 @@ footer{
 
 .contenedor-pokemon{
     align-items: center;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
     margin-top: 20px;
 } 
-/* 
-.pokemon-card{
+
+/* .pokemon-card{
     background-color: black;
     border-radius: 35px;
 }
