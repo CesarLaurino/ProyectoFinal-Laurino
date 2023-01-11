@@ -114,10 +114,10 @@ formLogin.onsubmit = ( event ) => {
         subirAlLs("login", true)
         contenedorForm.style.display = "none" 
         logout.style.display = "block" 
-        contenedorPokemon.style.display = "grid"
+        contenedorPokemon.style.display = "flex"
         buscadorPokemon.style.display = "block"
     } else {        
-        loginIncorrecto.style.display = "flex"
+        loginIncorrecto.style.display = "block"
         inputPass.style.border = "2px solid red"
         inputUser.style.border = "2px solid red"
         buscadorPokemon.style.display = "none"
