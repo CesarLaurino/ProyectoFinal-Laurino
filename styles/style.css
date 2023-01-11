@@ -19,10 +19,15 @@ body {
 
 
 nav {
-    padding: 20px;
+    padding: 15px;
     background-color: black;
     display: flex;
     justify-content: space-between;
+}
+
+.titulo-nav{
+    align-items: center;
+    color: white;
 }
 
 footer{
@@ -34,6 +39,7 @@ footer{
 }
 
 .modo-claro .button {
+    margin-top: 10px;
     display: inline-block;
     width: 80px;
     height: 20px;
@@ -70,7 +76,7 @@ footer{
     height: 40px;
     background-color: white;
     border-radius: 50%;
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 10px goldenrod;
     position: absolute;
     top: -10px;
     left: -3px;
@@ -82,6 +88,7 @@ footer{
 
 #claro-oscuro:checked + .slider::after {
     content: url(/img/ojosgengar.png);
+    box-shadow: 0px 0px 10px 10px rgb(106, 0, 205);
     transform: translateX(50px) rotate(360deg);
 }
 
@@ -297,12 +304,6 @@ footer{
     display: none;
 }
 
-.container-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .inicio{
     display: flex;
     align-items: center;
@@ -310,11 +311,6 @@ footer{
     margin-bottom: 50px;
 }
 
-.container-usuarios {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-} 
 
 #logint {
     margin-top: 30px;
@@ -372,18 +368,6 @@ footer{
     opacity: 0;
 }
 
-.poke{
-    display: none;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-} 
-
-.titulo-pokemon{
-    font-size: 100%;
-    text-align: center;
-}
-
 .buscador{
     display: none;
     justify-content: center;
@@ -415,3 +399,9 @@ footer{
     display: none;
 }
 
+.contenedor-pokemon{
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+} 
