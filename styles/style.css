@@ -131,6 +131,34 @@ footer{
 	}
 }
 
+.modo-claro .login-box  {
+    height: 525px;
+    background-color:rgb(125, 0, 0);
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid darkgoldenrod;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.modo-oscuro .login-box  {
+    height: 525px;
+    background-color: rgb(89, 89, 89);
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgb(77, 0, 148);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
 .login-box #avatar {
     width: 100px;
     height: 100px;
@@ -174,31 +202,7 @@ footer{
     align-items: center;
 }
 
-.modo-claro .login-box  {
-    height: 525px;
-    background-color:rgb(125, 0, 0);
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
 
-.modo-oscuro .login-box  {
-    height: 525px;
-    background-color: rgb(89, 89, 89);
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
 
 .modo-claro .login-box .input-ingre {
     margin-top: 25px;
