@@ -14,6 +14,8 @@ const body = document.querySelector (".modo-claro")
 const buscadorPokemon = document.querySelector (".buscador")
 /////////////////////POKEMONS//////////////////////////////
 const contenedorPokemon = document.querySelector (".contenedor-pokemon")
+/////////////////////SPINNER///////////////////////////////
+const spinner = document.querySelector (".wobbling-10")
 
 
 //////////////////////////LLamarlos desde api///////////////////////////
@@ -22,9 +24,11 @@ function fetchPokemon (id){
     fetch ( `https://pokeapi.co/api/v2/pokemon/${id}/` )
     .then (res => res.json())
     .then (data => crearPokemons(data))
+    spinner.style.display = "none"
     }
 
     function fetchPokemons (number){
+    spinner.style.display = "block"
     for (let i = 1; i <= number; i++){
         fetchPokemon(i);
     }
