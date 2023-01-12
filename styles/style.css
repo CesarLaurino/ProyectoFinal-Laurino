@@ -11,12 +11,12 @@ body {
 
 .modo-claro {
     background-image: url(/img/Background-modo-claro3.jpg);
+    animation: pulse 4s infinite;
 }
 
 .modo-oscuro {
     background-image: url(/img/Background-modo-oscuro.jpg);
 }
-
 
 nav {
     padding: 15px;
@@ -460,7 +460,7 @@ footer{
 }
 
 .contenedor-pokemon{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
