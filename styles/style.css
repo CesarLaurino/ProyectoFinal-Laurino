@@ -1,12 +1,11 @@
 
 
 * {
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: monospace;
     max-height: 500px;
     background-attachment: fixed;
@@ -28,6 +27,7 @@ nav {
     background-color: black;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 .img-titulo{
@@ -37,7 +37,7 @@ nav {
 }
 
 footer{
-    position: fixed;
+    position: relative;
     background-color: black;
     width: 100%;
     height: 50px;
@@ -105,31 +105,13 @@ footer{
 
 .login-box {
     width: 330px;
-    height: 450px;
-    margin: 100px;
+    margin: 50px;
     position: static;
     box-sizing: border-box;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
 	transform: scale(10);
-	animation: pulse 4s infinite;
 }
 
-@keyframes pulse {
-	0% {
-		transform: scale(1);
-		box-shadow: 0 0 10px 0 rgb(218, 165, 32, 0.7);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 10px 35px rgba(218, 165, 32, 0); 
-	}
-
-	100% {
-		transform: scale(1);
-		box-shadow: 0 0 10px 0 rgba(218, 165, 32, 0.7);
-	}
-}
 
 .modo-claro .login-box  {
     height: 525px;
@@ -143,6 +125,25 @@ footer{
     border-top-right-radius: 100px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    animation: pulseclaro 4s infinite;
+}
+
+
+@keyframes pulseclaro {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 10px 0 rgb(218, 165, 32);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 10px 35px rgba(218, 165, 32, 0); 
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 10px 0 rgba(218, 165, 32);
+	}
 }
 
 .modo-oscuro .login-box  {
@@ -157,6 +158,25 @@ footer{
     border-top-right-radius: 100px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    animation: pulseoscuro 4s infinite;
+}
+
+
+@keyframes pulseoscuro {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 10px 0 rgb(89, 89, 89);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 10px 35px rgb(89, 89, 89, 0); 
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 10px 0 rgb(89, 89, 89);
+	}
 }
 
 .login-box #avatar {
@@ -319,7 +339,6 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
 }
 
 
@@ -426,6 +445,8 @@ footer{
 
 .modo-claro #search {
     margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     margin-bottom: 30px;
     border-radius: 20px;
@@ -446,6 +467,8 @@ footer{
 
 .modo-oscuro #search {
     margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     margin-bottom: 30px;
     border-radius: 20px;
@@ -470,10 +493,52 @@ footer{
 
 .contenedor-pokemon{
     display: none;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 } 
+
+.contenedor-pokemon .nombre{
+    margin-bottom: 10px;
+}
+.modo-claro .contenedor-pokemon p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin: 5px;
+
+} 
+
+.pokemon-card{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 3px solid darkturquoise;
+    border-top: 10px solid darkturquoise;
+    border-bottom: transparent;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 35px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-contenedor img{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(117, 117, 117);
+    border: 3px solid turquoise;
+    border-top: 8px solid turquoise;
+    border-radius: 50px;
+    border-bottom: transparent;
+
+}
 
 .spinnerball {
     display: flex;
@@ -522,4 +587,26 @@ footer{
 }
 
 
+.paginacion{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
 
+.lista-paginacion {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.page-link{
+    font-family: monospace;
+    border-radius: 10px;
+    margin-left: 10px;
+}

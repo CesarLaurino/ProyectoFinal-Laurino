@@ -16,6 +16,13 @@ const buscadorPokemon = document.querySelector (".buscador")
 const contenedorPokemon = document.querySelector (".contenedor-pokemon")
 /////////////////////SPINNER///////////////////////////////
 const spinner = document.querySelector (".wobbling-10")
+/////////////////////PAGINACIÓN////////////////////////////
+const paginacion = document.querySelector (".paginacion")
+const anterior = document.querySelector ("#anterior")
+const siguiente = document.querySelector ("#siguiente")
+
+let offset = 1
+let limit = 8
 
 
 //////////////////////////LLamarlos desde api///////////////////////////
@@ -23,17 +30,19 @@ const spinner = document.querySelector (".wobbling-10")
 function fetchPokemon (id){
     fetch ( `https://pokeapi.co/api/v2/pokemon/${id}/` )
     .then (res => res.json())
-    .then (data => crearPokemons(data))
-    spinner.style.display = "none"
+    .then (data => {
+        crearPokemons(data)})
+        spinner.style.display = "none"
     }
 
-    function fetchPokemons (number){
+    function fetchPokemons (offset, limit){
     spinner.style.display = "block"
-    for (let i = 1; i <= number; i++){
+    for (let i = 1; i <= offset + limit; i++){
         fetchPokemon(i);
     }
 }
 //////////////////////////Crear Card Pokemons///////////////////////////
+
 
 function crearPokemons(pokemon){
     const card = document.createElement (`div`);
@@ -48,11 +57,11 @@ function crearPokemons(pokemon){
     imgContenedor.appendChild(imgPokemon);
 
     const numeroPokemon = document.createElement (`p`);
-    numeroPokemon.classList.add = `numero`;
+    numeroPokemon.classList.add = `numero-pokemon`;
     numeroPokemon.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
     const nombrePokemon = document.createElement (`p`);
-    nombrePokemon.classList.add = ` nombre `;
+    nombrePokemon.classList.add = `nombre-pokemon`;
     nombrePokemon.textContent = pokemon.name
 
     card.appendChild (imgContenedor);
@@ -62,7 +71,29 @@ function crearPokemons(pokemon){
     contenedorPokemon.appendChild (card);
 }
 
-fetchPokemons(151)
+function removeChildNodes (parent){
+    while (parent.firstchild) {
+        parent.removechild(parent.firstchild);
+    }
+}
+
+fetchPokemons(offset, limit);
+
+//////////////////////////Paginación////////////////////////////////////
+
+anterior.addEventListener('click', () => {
+    if (offset != 1){
+        offset -= 9;
+        removeChildNodes(contenedorPokemon)
+        fetchPokemons (offset, limit);
+    }
+})
+
+siguiente.addEventListener('click', () => {
+    offset += 9;
+    removeChildNodes(contenedorPokemon)
+    fetchPokemons (offset, limit);
+})
 
 //////////////////////////Buscador//////////////////////////////////////
 
@@ -120,11 +151,13 @@ formLogin.onsubmit = ( event ) => {
         logout.style.display = "block" 
         contenedorPokemon.style.display = "flex"
         buscadorPokemon.style.display = "block"
+        paginacion.style.display = "flex"
     } else {        
         loginIncorrecto.style.display = "block"
         inputPass.style.border = "2px solid red"
         inputUser.style.border = "2px solid red"
         buscadorPokemon.style.display = "none"
+        
         formLogin.reset();
     }
 
