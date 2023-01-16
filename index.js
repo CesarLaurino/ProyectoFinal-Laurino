@@ -14,6 +14,7 @@ const body = document.querySelector (".modo-claro")
 const buscadorPokemon = document.querySelector (".buscador")
 /////////////////////POKEMONS//////////////////////////////
 const contenedorPokemon = document.querySelector (".contenedor-pokemon")
+const arraypkm = []
 const card = document.querySelector (".card")
 /////////////////////SPINNER///////////////////////////////
 const spinner = document.querySelector (".wobbling-10")
@@ -26,7 +27,7 @@ const anterior2 = document.querySelector ("#anterior2")
 const siguiente2 = document.querySelector ("#siguiente2")
 
 let offset = 1
-let limit = 49
+let limit = 2
 
 //////////////////////////Paginación////////////////////////////////////
 
@@ -72,33 +73,45 @@ siguiente2.addEventListener('click', () => {
 
 //////////////////////////Crear Card Pokemons///////////////////////////
 
-const cardHtml = ( array ) => {
-    const generarNodos = array.reduce(( acc, element) => {
-        return acc + `
-            <div class="card" id="pokemon-${element.id}">
-                <div class="container-img">
-                    <img src=${element.img} alt=${element.name}>
-                </div>                
-                <h2>
-                    ${element.name}
-                </h2>
-                <button id="boton-${element.id}" class="boton-card">
-                    Añadir al carrito
-                </button>
-            </div>
-        `
-    }, "")
 
-    contenedorPokemon.innerHTML = generarNodos
-}
+// const cardHtml = ( newArray ) => {
+//     const pokemonarray = [newArray]
+
+//     // const generarNodos = pokemonarray.foreach((u) => {
+
+function cardHtml (data) {
+    const cartapkm = data.reduce ((acc, u)=> {
+        return acc + `
+        <div class="card">
+            <div class="container-img">
+                <img src=${u.sprites.front_default} alt=${u.name}>
+            </div>                
+            <h2>
+                ${u.name}
+            </h2>
+            <h2>
+                ${u.id}
+            </h2>
+            <button id="boton-${u.id}" class="boton-card">
+                Añadir al carrito
+            </button>
+        </div>
+    `
+    }, "")
+    contenedorPokemon.innerHTML = cartapkm
+    }
+
 
 //////////////////////////LLamarlos desde api///////////////////////////
 
 function fetchPokemon (id){
+
     fetch ( `https://pokeapi.co/api/v2/pokemon/${id}/` )
     .then (res => res.json())
-    .then (data => {
-        crearPokemons(data)})
+    .then (data =>{ 
+        arraypkm.push (data);
+        cardHtml(arraypkm)
+        })
         spinner.style.display = "none"
     }
 
@@ -109,7 +122,35 @@ function fetchPokemon (id){
     }
 }
 
-function crearPokemons(pokemon){
+
+
+
+// }
+// const cardHtml = ( array ) => {
+//     const generarNodos = array.reduce (( acc, element) => {
+//         return acc + `
+//             <div class="card">
+//                 <div class="container-img">
+//                     <img src=${element.img} alt=${element.name}>
+//                 </div>                
+//                 <h2>
+//                     ${element.name}
+//                 </h2>
+//                 <h2>
+//                     ${element.id}
+//                 </h2>
+//                 <button id="boton-${element.id}" class="boton-card">
+//                     Añadir al carrito
+//                 </button>
+//             </div>
+//         `
+//     }, "")
+//     contenedorPokemon.innerHTML = generarNodos
+// }
+
+
+
+// function crearPokemons(pokemon){
     // const flipCard = document.createElement (`div`);
     // flipCard.classList.add ("flip-card");
 
@@ -175,12 +216,13 @@ function crearPokemons(pokemon){
     //         className: "info",
     //         close: true
     //     }).showToast ()}
-}
+
 
 fetchPokemons(offset, limit);
 
 
 //////////////////////////Buscador//////////////////////////////////////
+
 document.addEventListener("keyup", e => {
 
     if (e.target.matches ("#search")){
