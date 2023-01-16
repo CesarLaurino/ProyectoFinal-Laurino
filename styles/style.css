@@ -503,8 +503,14 @@ footer{
     margin-right: auto;
 } 
 
-.contenedor-pokemon .nombre{
-    margin-bottom: 10px;
+.nombre{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.numero{
+    margin: 10px;
+    font-size: 20px;
 }
 .modo-claro .contenedor-pokemon p{
     text-align: center;
@@ -513,18 +519,20 @@ footer{
 
 } 
 
-.pokemon-card{
+.info{
     background-color: rgba(255, 255, 255, 0.6);
     border: 3px solid darkturquoise;
     border-top: 10px solid darkturquoise;
     border-bottom: transparent;
     margin: 15px;
-    padding: 20px;
+    margin-bottom: 0px;
+    padding: 10px;
     border-radius: 35px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .img-contenedor img{
@@ -538,14 +546,22 @@ footer{
     border-bottom: transparent;
 }
 
-.pokemon-card button{
+.carta {
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.carta .boton-fav{
+
     background-image: url(/img/Poké_Ball_botonfav.jpg);
     background-color: darkturquoise;
     border-radius: 25px;
     padding: 14px;
     position: relative;
-    margin-left: 40px;
+
 }
 
 
@@ -600,8 +616,16 @@ footer{
     display: none;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.paginacion2 {
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .lista-paginacion {
@@ -614,13 +638,7 @@ footer{
     border-radius: 10px;
 }
 
-.paginacion2 {
-    display: none;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 50px;
-}
+
 
 .lista-paginacion2 {
     display: flex;
@@ -638,26 +656,33 @@ footer{
     margin-left: 10px;
 }
 
-.contenedor-card {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .contenedor-card {
+.carta-frente:hover .info {
     transform: rotateY(180deg);
 }
 
-.pokemon-card,
-.espalda-card {
+.info,
+.carta-atras {
     backface-visibility: hidden;
 }
 
-.espalda-card {
+.info .carta-atras {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 3px solid darkturquoise;
+    border-top: 10px solid rgb(0, 206, 209);
+    border-bottom: transparent;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 35px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    text-align: center;
     transform: rotateY(180deg);
     position: absolute;
     top: 0%;
 }
+
+.boton-fav {
+    padding: 10px;
+    padding-left: 40px;
+}
+

@@ -69,35 +69,6 @@ siguiente2.addEventListener('click', () => {
     fetchPokemons (offset, limit);
 }) 
 
-
-
-//////////////////////////Crear Card Pokemons///////////////////////////
-
-function cardHtml (data) {
-    const cartapkm = data.reduce ((acc, u)=> {
-        return acc + `
-        <div class="card">
-            <div class="container-img">
-                <img src=${u.sprites.front_default} alt=${u.name}>
-            </div>                
-            <h2>
-                ${u.name}
-            </h2>
-            <h2>
-                ${u.id}
-            </h2>
-            <button id="boton-${u.id}" class="boton-card">
-                Añadir al carrito
-            </button>
-        </div>
-    `
-    }, "")
-    contenedorPokemon.innerHTML = cartapkm
-    }
-
-
-//////////////////////////LLamarlos desde api///////////////////////////
-
 function fetchPokemon (id){
 
     fetch ( `https://pokeapi.co/api/v2/pokemon/${id}/` )
@@ -115,6 +86,61 @@ function fetchPokemon (id){
         fetchPokemon(i);
     }
 }
+
+        // <div class="card">
+        //     <div class="container-img">
+        //         <img src=${u.sprites.front_default} alt=${u.name}>
+        //     </div>                
+        //     <h2>
+        //         ${u.name}
+        //     </h2>
+        //     <h2>
+        //         ${u.id}
+        //     </h2>
+        //     <button id="boton-${u.id}" class="boton-card">
+        //         Añadir al carrito
+        //     </button>
+        // </div>
+//////////////////////////Crear Card Pokemons///////////////////////////
+
+function cardHtml (data) {
+    const cartapkm = data.reduce ((acc, u)=> {
+        return acc + `
+        <div class="carta">
+            <div class="carta-frente" id="pokemon-${u.id}">
+                <div class="info">
+                    <div class="img-contenedor">
+                        <img src=${u.sprites.front_default} alt=${u.name}>
+                    </div>
+                    <h2 class="numero">${u.id.toString().padStart(3, 0)}</h2>
+                    <h2 class="nombre">${u.name}</h2>
+                </div>
+            </div>
+            <button id="boton-${u.id}" class="boton-fav"></button>
+            <div class="carta-atras">
+                <div class="contenido">
+                </div>
+            </div>
+        </div>
+    `
+    }, "")
+    
+    contenedorPokemon.innerHTML = cartapkm
+
+    cartapkm.onclick = () => {
+        Toastify({
+            text: `Atrapaste un ${pokemon.name}`,
+            duration: 1000,
+            className: "info",
+            close: true
+        }).showToast ()}
+    }
+    
+
+
+
+//////////////////////////LLamarlos desde api///////////////////////////
+
 
 
 // function crearPokemons(pokemon){
