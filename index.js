@@ -246,7 +246,6 @@ formLogin.onsubmit = ( event ) => {
         contenedorForm.style.display = "none" 
         logout.style.display = "block" 
         contenedorPokemon.style.display = "flex"
-        // card.style.display = "flex"
         buscadorPokemon.style.display = "block"
         paginacion.style.display = "flex"
         paginacion2.style.display = "flex"
