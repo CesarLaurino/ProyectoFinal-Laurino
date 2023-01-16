@@ -14,16 +14,83 @@ const body = document.querySelector (".modo-claro")
 const buscadorPokemon = document.querySelector (".buscador")
 /////////////////////POKEMONS//////////////////////////////
 const contenedorPokemon = document.querySelector (".contenedor-pokemon")
+const card = document.querySelector (".card")
 /////////////////////SPINNER///////////////////////////////
 const spinner = document.querySelector (".wobbling-10")
 /////////////////////PAGINACIÓN////////////////////////////
 const paginacion = document.querySelector (".paginacion")
 const anterior = document.querySelector ("#anterior")
 const siguiente = document.querySelector ("#siguiente")
+const paginacion2 = document.querySelector (".paginacion2")
+const anterior2 = document.querySelector ("#anterior2")
+const siguiente2 = document.querySelector ("#siguiente2")
 
 let offset = 1
-let limit = 8
+let limit = 49
 
+//////////////////////////Paginación////////////////////////////////////
+
+function removeChildNodes (parent){
+    while (parent.firstchild) {
+        parent.removechild(parent.firstchild);
+    }
+}
+
+anterior.addEventListener('click', () => {
+    if (offset != 1)  {
+        offset -= 50;
+        removeChildNodes(contenedorPokemon)
+        contenedorPokemon.innerHTML = "";
+        fetchPokemons (offset, limit);
+    }
+})
+
+siguiente.addEventListener('click', () => {
+    offset += 50;
+    removeChildNodes(contenedorPokemon)
+    contenedorPokemon.innerHTML = "";
+    fetchPokemons (offset, limit);
+}) 
+
+anterior2.addEventListener('click', () => {
+    if (offset != 1)  {
+        offset -= 50;
+        removeChildNodes(contenedorPokemon)
+        contenedorPokemon.innerHTML = "";
+        fetchPokemons (offset, limit);
+    }
+})
+
+siguiente2.addEventListener('click', () => {
+    offset += 50;
+    removeChildNodes(contenedorPokemon)
+    contenedorPokemon.innerHTML = "";
+    fetchPokemons (offset, limit);
+}) 
+
+
+
+//////////////////////////Crear Card Pokemons///////////////////////////
+
+const cardHtml = ( array ) => {
+    const generarNodos = array.reduce(( acc, element) => {
+        return acc + `
+            <div class="card" id="pokemon-${element.id}">
+                <div class="container-img">
+                    <img src=${element.img} alt=${element.name}>
+                </div>                
+                <h2>
+                    ${element.name}
+                </h2>
+                <button id="boton-${element.id}" class="boton-card">
+                    Añadir al carrito
+                </button>
+            </div>
+        `
+    }, "")
+
+    contenedorPokemon.innerHTML = generarNodos
+}
 
 //////////////////////////LLamarlos desde api///////////////////////////
 
@@ -37,66 +104,83 @@ function fetchPokemon (id){
 
     function fetchPokemons (offset, limit){
     spinner.style.display = "block"
-    for (let i = 1; i <= offset + limit; i++){
+    for (let i = offset; i <= offset + limit; i++){
         fetchPokemon(i);
     }
 }
-//////////////////////////Crear Card Pokemons///////////////////////////
-
 
 function crearPokemons(pokemon){
-    const card = document.createElement (`div`);
-    card.classList.add (`pokemon-card`);
+    // const flipCard = document.createElement (`div`);
+    // flipCard.classList.add ("flip-card");
 
-    const imgContenedor = document.createElement (`div`);
-    imgContenedor.classList.add (`img-contenedor`);
+    // const contenedorCard = document.createElement (`div`);
+    // contenedorCard.classList.add ("contenedor-card");
 
-    const imgPokemon = document.createElement (`img`);
-    imgPokemon.src = pokemon.sprites.front_default
+    // flipCard.appendChild (contenedorCard);
 
-    imgContenedor.appendChild(imgPokemon);
+    // const card = document.createElement (`div`);
+    // card.classList.add (`pokemon-card`);
 
-    const numeroPokemon = document.createElement (`p`);
-    numeroPokemon.classList.add = `numero-pokemon`;
-    numeroPokemon.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
+    // const imgContenedor = document.createElement (`div`);
+    // imgContenedor.classList.add (`img-contenedor`);
 
-    const nombrePokemon = document.createElement (`p`);
-    nombrePokemon.classList.add = `nombre-pokemon`;
-    nombrePokemon.textContent = pokemon.name
+    // const imgPokemon = document.createElement (`img`);
+    // imgPokemon.src = pokemon.sprites.front_default
 
-    card.appendChild (imgContenedor);
-    card.appendChild (numeroPokemon);
-    card.appendChild (nombrePokemon);
+    // imgContenedor.appendChild (imgPokemon);
 
-    contenedorPokemon.appendChild (card);
-}
+    // const contenedorNumNom = document.createElement (`div`);
+    // contenedorNumNom.classList.add (`contenedor-num-nom`);
 
-function removeChildNodes (parent){
-    while (parent.firstchild) {
-        parent.removechild(parent.firstchild);
-    }
+    // const numeroPokemon = document.createElement (`p`);
+    // numeroPokemon.classList.add (`numero-pokemon`);
+    // numeroPokemon.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
+
+    // const nombrePokemon = document.createElement (`p`);
+    // nombrePokemon.classList.add (`nombre-pokemon`);
+    // nombrePokemon.textContent = pokemon.name
+
+    // contenedorNumNom.appendChild (nombrePokemon);
+    // contenedorNumNom.appendChild (numeroPokemon);
+
+    // const contenedorBotonFav = document.createElement (`div`);
+    // contenedorBotonFav.classList.add  (`contenedor-botonfav`);
+    
+    // const botonFavorito = document.createElement (`button`);
+    // botonFavorito.classList.add  (`boton-favorito`);
+
+    // contenedorBotonFav.appendChild (botonFavorito);
+
+    // card.appendChild (imgContenedor);
+    // card.appendChild (contenedorNumNom);
+    // card.appendChild (contenedorBotonFav);
+
+    // const voltearCard = document.createElement (`div`);
+    // voltearCard.classList.add (`espalda-card`)
+
+    // const descripcion = document.createElement (`div`)
+    // descripcion.classList.add (`descripcion-pokemon`)
+
+    // contenedorPokemon.appendChild (descripcion)
+
+    // contenedorCard.appendChild (card);
+    // contenedorCard.appendChild (voltearCard);
+    // contenedorPokemon.appendChild (flipCard);
+
+
+    // botonFavorito.onclick = () => {
+    //     Toastify({
+    //         text: `Atrapaste un ${pokemon.name}`,
+    //         duration: 1000,
+    //         className: "info",
+    //         close: true
+    //     }).showToast ()}
 }
 
 fetchPokemons(offset, limit);
 
-//////////////////////////Paginación////////////////////////////////////
-
-anterior.addEventListener('click', () => {
-    if (offset != 1){
-        offset -= 9;
-        removeChildNodes(contenedorPokemon)
-        fetchPokemons (offset, limit);
-    }
-})
-
-siguiente.addEventListener('click', () => {
-    offset += 9;
-    removeChildNodes(contenedorPokemon)
-    fetchPokemons (offset, limit);
-})
 
 //////////////////////////Buscador//////////////////////////////////////
-
 document.addEventListener("keyup", e => {
 
     if (e.target.matches ("#search")){
@@ -112,7 +196,9 @@ document.addEventListener("keyup", e => {
     }
 })
 
-////////////////////////Modos////////////////////////////////////////////
+
+
+////////////////////////////Modos///////////////////////////////////////
 
 botonModos.onclick = () => {
     const cambioImagen = document.getElementById("avatar");
@@ -141,17 +227,20 @@ const obtenerDelLs = ( clave ) => {
     return JSON.parse(localStorage.getItem(clave))
 }
 
-/////////////////////////////////////////////////////////////////////////
+///////////////////////Evento Post-Login////////////////////////////////
 
 formLogin.onsubmit = ( event ) => {
     event.preventDefault()
     if ( inputUser.value === datosUsuario.user && inputPass.value === datosUsuario.password ) {
         subirAlLs("login", true)
+        swal("Login correcto","¡Bienvenido a CoderDex Js!")
         contenedorForm.style.display = "none" 
         logout.style.display = "block" 
         contenedorPokemon.style.display = "flex"
+        // card.style.display = "flex"
         buscadorPokemon.style.display = "block"
         paginacion.style.display = "flex"
+        paginacion2.style.display = "flex"
     } else {        
         loginIncorrecto.style.display = "block"
         inputPass.style.border = "2px solid red"
