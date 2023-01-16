@@ -16,6 +16,7 @@ const buscadorPokemon = document.querySelector (".buscador")
 const contenedorPokemon = document.querySelector (".contenedor-pokemon")
 const arraypkm = []
 const card = document.querySelector (".card")
+// const botonFav = document.getElementByClassName(".boton-fav")
 /////////////////////SPINNER///////////////////////////////
 const spinner = document.querySelector (".wobbling-10")
 /////////////////////PAGINACIÓN////////////////////////////
@@ -87,20 +88,7 @@ function fetchPokemon (id){
     }
 }
 
-        // <div class="card">
-        //     <div class="container-img">
-        //         <img src=${u.sprites.front_default} alt=${u.name}>
-        //     </div>                
-        //     <h2>
-        //         ${u.name}
-        //     </h2>
-        //     <h2>
-        //         ${u.id}
-        //     </h2>
-        //     <button id="boton-${u.id}" class="boton-card">
-        //         Añadir al carrito
-        //     </button>
-        // </div>
+
 //////////////////////////Crear Card Pokemons///////////////////////////
 
 function cardHtml (data) {
@@ -127,16 +115,14 @@ function cardHtml (data) {
     
     contenedorPokemon.innerHTML = cartapkm
 
-    cartapkm.onclick = () => {
-        Toastify({
-            text: `Atrapaste un ${pokemon.name}`,
-            duration: 1000,
-            className: "info",
-            close: true
-        }).showToast ()}
-    }
-    
-
+    // .onclick = () => {
+    //     Toastify({
+    //         text: `Atrapaste un ${u.name}`,
+    //         duration: 1000,
+    //         className: "info",
+    //         close: true
+    //     }).showToast ()}
+}
 
 
 //////////////////////////LLamarlos desde api///////////////////////////
