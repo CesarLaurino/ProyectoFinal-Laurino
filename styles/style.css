@@ -598,7 +598,7 @@ footer{
 
 .paginacion {
     display: none;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 10px;
     margin-bottom: 50px;
@@ -616,7 +616,7 @@ footer{
 
 .paginacion2 {
     display: none;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 10px;
     margin-bottom: 50px;
