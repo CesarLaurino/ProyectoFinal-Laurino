@@ -73,12 +73,6 @@ siguiente2.addEventListener('click', () => {
 
 //////////////////////////Crear Card Pokemons///////////////////////////
 
-
-// const cardHtml = ( newArray ) => {
-//     const pokemonarray = [newArray]
-
-//     // const generarNodos = pokemonarray.foreach((u) => {
-
 function cardHtml (data) {
     const cartapkm = data.reduce ((acc, u)=> {
         return acc + `
@@ -121,33 +115,6 @@ function fetchPokemon (id){
         fetchPokemon(i);
     }
 }
-
-
-
-
-// }
-// const cardHtml = ( array ) => {
-//     const generarNodos = array.reduce (( acc, element) => {
-//         return acc + `
-//             <div class="card">
-//                 <div class="container-img">
-//                     <img src=${element.img} alt=${element.name}>
-//                 </div>                
-//                 <h2>
-//                     ${element.name}
-//                 </h2>
-//                 <h2>
-//                     ${element.id}
-//                 </h2>
-//                 <button id="boton-${element.id}" class="boton-card">
-//                     Añadir al carrito
-//                 </button>
-//             </div>
-//         `
-//     }, "")
-//     contenedorPokemon.innerHTML = generarNodos
-// }
-
 
 
 // function crearPokemons(pokemon){
