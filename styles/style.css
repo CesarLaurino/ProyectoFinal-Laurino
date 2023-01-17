@@ -657,7 +657,7 @@ footer{
 }
 
 .carta-frente:hover .info {
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
 }
 
 .info,
