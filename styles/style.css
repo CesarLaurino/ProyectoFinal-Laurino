@@ -108,7 +108,7 @@ footer{
 
 .login-box {
     width: 330px;
-    margin: 50px;
+    margin: 100px;
     position: static;
     box-sizing: border-box;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
@@ -658,10 +658,10 @@ footer{
     border-radius: 10px;
     margin-left: 10px;
 }
-
+/* 
 .carta-frente:hover .info {
-    /* transform: rotateY(180deg); */
-}
+    transform: rotateY(180deg);
+} */
 
 .info,
 .carta-atras {
