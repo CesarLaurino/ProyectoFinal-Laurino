@@ -40,11 +40,23 @@ nav {
 }
 
 footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: flex-start;
     position: relative;
     background-color: black;
     width: 100%;
     height: 50px;
     bottom: 0%;
+}
+
+.copyright {
+    color: gray;
+    margin-left: 10px;
+    font-size: 15px;
+    margin-bottom: 0px;
 }
 
 .modo-claro .button {
@@ -614,7 +626,6 @@ footer{
     50%     {transform:rotate(-0.2deg)}
 }
 
-
 .paginacion {
     display: none;
     justify-content: flex-start;
@@ -641,8 +652,6 @@ footer{
     border-radius: 10px;
 }
 
-
-
 .lista-paginacion2 {
     display: flex;
     flex-direction: row;
@@ -658,14 +667,9 @@ footer{
     border-radius: 10px;
     margin-left: 10px;
 }
-/* 
-.carta-frente:hover .info {
-    transform: rotateY(180deg);
-} */
 
-.info,
-.carta-atras {
-    backface-visibility: hidden;
+.carta-frente:hover .info {
+    transform: rotateY(360deg);
 }
 
 .info .carta-atras {
@@ -692,40 +696,3 @@ footer{
     position: relative;
 }
 
-.div-listfav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.lista-favoritos {
-    display: none;
-    font-size: 13px;
-    border: solid 2px goldenrod;
-    box-shadow: 0px 0px 2px 2px darkred;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-family: monospace;
-    background-color: darkgoldenrod;
-    color:white;
-}
-
-.modo-oscuro .lista-favoritos {
-    display: none;
-    font-size: 13px;
-    border: solid 2px rgb(148, 148, 148);
-    box-shadow: 0px 0px 2px 2px grey;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-family: monospace;
-    background-color: rgba(76, 0, 148, 0.532);
-    color:rgb(203, 203, 203);
-}
